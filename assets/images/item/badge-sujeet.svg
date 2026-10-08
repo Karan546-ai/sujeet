@@ -1,0 +1,6 @@
+<svg width="312" height="312" viewBox="0 0 312 312" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs><path id="c" d="M156 156 m-118 0 a118 118 0 1 1 236 0 a118 118 0 1 1 -236 0"/></defs>
+<text fill="#fff" font-family="Arial, sans-serif" font-size="25" letter-spacing="4.2"><textPath href="#c">SINCE 2023 - AWARD WINNING AI VIDEO EDITOR -</textPath></text>
+<circle cx="156" cy="156" r="46" stroke="#fff" stroke-width="2.5"/>
+<path d="M144 134 L178 156 L144 178 Z" stroke="#fff" stroke-width="2.5" stroke-linejoin="round"/>
+</svg>
