@@ -197,3 +197,18 @@
   .section-service-2.no-pin .wg-service-2 .image-simu { display: none; }
   .section-service-2.no-pin .wg-service-2 .center { align-self: center; }
 }
+
+/* ---------- Video previews (services + featured work) ---------- */
+.preview-video { display: block; width: 100%; height: 100%; object-fit: cover; background: #0b0b0b; }
+.wg-service-2 .image { overflow: hidden; border-radius: 16px; aspect-ratio: 4 / 5; }
+.wg-service-2 .image-2 { overflow: hidden; border-radius: 12px; aspect-ratio: 4 / 5; }
+.wg-feature-v01 .feature-image { display: block; aspect-ratio: 4 / 3; }
+.hover-img .img-style > .preview-video { transition: transform 1.5s cubic-bezier(0, 0, 0.44, 1.18); }
+.hover-img:hover .img-style > .preview-video { transform: scale(1.06); }
+@media (max-width: 767px) {
+  .wg-service-2 .image .preview-video { max-height: 350px; }
+}
+
+/* About portrait has a white studio background: keep it full colour */
+.section-about-me .davies-video.profile-photo { background: #fff; }
+.section-about-me .davies-video.profile-photo .video { filter: none; object-position: center top; }

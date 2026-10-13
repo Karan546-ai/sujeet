@@ -35,7 +35,7 @@ window.VIDEO_LINKS = [
                 thumb: "https://i.ytimg.com/vi/" + m[1] + "/hqdefault.jpg", vertical: /shorts\//.test(url) };
         if ((m = url.match(/drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?(?:.*&)?id=)([\w-]{20,})/)))
             return { embed: "https://drive.google.com/file/d/" + m[1] + "/preview", open: "https://drive.google.com/file/d/" + m[1] + "/view",
-                thumb: "https://drive.google.com/thumbnail?id=" + m[1] + "&sz=w1280" };
+                thumb: "assets/images/posters/" + m[1] + ".jpg", fallback: "https://drive.google.com/thumbnail?id=" + m[1] + "&sz=w1280" };
         if ((m = url.match(/vimeo\.com\/(?:video\/)?(\d+)/)))
             return { embed: "https://player.vimeo.com/video/" + m[1] + "?autoplay=1", open: "https://vimeo.com/" + m[1] };
         if ((m = url.match(/instagram\.com\/(?:[\w.]+\/)?(reel|reels|p|tv)\/([\w-]+)/)))
@@ -49,7 +49,7 @@ window.VIDEO_LINKS = [
     var items = list.map(function (v) { var p = parse(v.url); p.title = v.title; p.tag = v.tag; if (v.thumb) p.thumb = v.thumb; return p; });
 
     function card(it, i) {
-        var thumb = it.thumb ? '<img loading="lazy" alt="' + esc(it.title) + '" src="' + esc(it.thumb) + '" onerror="this.remove()">'
+        var thumb = it.thumb ? '<img loading="lazy" alt="' + esc(it.title) + '" src="' + esc(it.thumb) + '"' + (it.fallback ? ' data-fallback="' + esc(it.fallback) + '" onerror="thumbFallback(this)">' : ' onerror="this.remove()">')
             : it.video ? '<video muted preload="metadata" src="' + esc(it.embed) + '#t=1"></video>' : "";
         return '<button type="button" class="vr-card' + (i ? "" : " vr-featured") + '" data-i="' + i + '">' +
             '<span class="vr-thumb">' + thumb +

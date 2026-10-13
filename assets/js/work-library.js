@@ -18,6 +18,12 @@
     document.addEventListener("keydown", function (e) { if (e.key === "Escape" && modal.classList.contains("open")) close(); });
 })();
 
+// Local poster frames live in assets/images/posters/<driveId>.jpg; fall back to Drive's own thumbnail, then to the empty card.
+window.thumbFallback = function (img) {
+    var f = img.getAttribute("data-fallback");
+    if (f) { img.removeAttribute("data-fallback"); img.src = f; } else img.remove();
+};
+
 // Work library: renders every Drive video from window.WORK_DATA with filters + lightbox player.
 (function () {
     var data = window.WORK_DATA, root = document.getElementById("workLibrary");
@@ -55,7 +61,7 @@
 
     function card(it, n) {
         return '<button type="button" class="wl-card" data-id="' + it[1] + '" data-title="' + esc(it[0]) + '" style="--d:' + (n % PAGE) * 50 + 'ms">' +
-            '<span class="wl-thumb"><img loading="lazy" alt="' + esc(it[0]) + '" src="https://drive.google.com/thumbnail?id=' + it[1] + '&sz=w640" onerror="this.remove()">' +
+            '<span class="wl-thumb"><img loading="lazy" alt="' + esc(it[0]) + '" src="assets/images/posters/' + it[1] + '.jpg" data-fallback="https://drive.google.com/thumbnail?id=' + it[1] + '&sz=w640" onerror="thumbFallback(this)">' +
             '<span class="wl-play"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span>' +
             '<span class="wl-meta"><span class="wl-title">' + esc(it[0]) + "</span>" +
             (it[2] ? '<span class="wl-tag">' + esc(it[2]) + "</span>" : "") + "</span></button>";
