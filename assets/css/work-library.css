@@ -212,3 +212,4 @@
 /* About portrait has a white studio background: keep it full colour */
 .section-about-me .davies-video.profile-photo { background: #fff; }
 .section-about-me .davies-video.profile-photo .video { filter: none; object-position: center top; }
+.wl-new { position: absolute; top: 10px; left: 10px; z-index: 3; padding: 3px 8px; border-radius: 999px; background: var(--primary); color: #000; font-size: 11px; font-weight: 600; letter-spacing: .06em; }
